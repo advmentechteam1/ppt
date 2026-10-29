@@ -88,19 +88,26 @@
 
     .logoimg {
       display: block;
-      width: var(--lw, 90px);
-      aspect-ratio: 5/3;
+      width: var(--lw, 112px);
+      aspect-ratio: 840/520;
       overflow: hidden;
       position: relative
     }
 
     .logoimg img {
       position: absolute;
-      width: 200%;
+      width: 190.48%;
       max-width: none;
-      left: -50%;
-      top: -27.5%;
+      left: -45.24%;
+      top: -38.46%;
       mix-blend-mode: lighten
+    }
+
+    .logoimg.ready img {
+      position: static;
+      width: 100%;
+      mix-blend-mode: normal;
+      display: block
     }
 
     #hero .logoimg {
@@ -1431,6 +1438,27 @@
  </div></div></section>`).join('');
 
     // gallery
+    // logo: crop + make black background transparent (needs http/https; falls back to CSS crop on file://)
+    (function () {
+      const im = new Image();
+      im.onload = () => {
+        try {
+          const c = document.createElement('canvas'); c.width = 840; c.height = 520;
+          const x = c.getContext('2d'); x.drawImage(im, 380, 200, 840, 520, 0, 0, 840, 520);
+          const d = x.getImageData(0, 0, 840, 520), p = d.data;
+          for (let i = 0; i < p.length; i += 4) {
+            const a = Math.max(p[i], p[i + 1], p[i + 2]);
+            if (a < 12) { p[i + 3] = 0; continue; }
+            p[i] = Math.min(255, p[i] * 255 / a); p[i + 1] = Math.min(255, p[i + 1] * 255 / a); p[i + 2] = Math.min(255, p[i + 2] * 255 / a); p[i + 3] = a;
+          }
+          x.putImageData(d, 0, 0);
+          const url = c.toDataURL('image/png');
+          document.querySelectorAll('.logoimg').forEach(w => { w.querySelector('img').src = url; w.classList.add('ready') });
+        } catch (e) { }
+      };
+      im.src = 'WhatsApp%20Image%202026-10-29%20at%204.36.05%20PM.jpeg';
+    })();
+
     const imgs = ['07 PM.jpeg', '07 PM (1).jpeg', '07 PM (2).jpeg', '08 PM.jpeg', '09 PM.jpeg', '09 PM (1).jpeg', '09 PM (2).jpeg', '10 PM.jpeg', '10 PM (1).jpeg', '12 PM.jpeg', '12 PM (1).jpeg', '12 PM (2).jpeg', '13 PM.jpeg']
       .map(s => 'WhatsApp Image 2026-10-29 at 4.32.' + s);
     const g1 = imgs.slice(0, 7).map((s, i) => [s, 'ADVMEN Creative ' + (i + 1)]);
