@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="hi">
+<html lang="en">
 
 <head>
   <meta charset="UTF-8">
@@ -10,16 +10,16 @@
     :root {
       --bg: #0b0b0d;
       --orange: #ff7a1a;
-      --orange2: #ff9a3d;
-      --red: #d62012;
+      --orange2: #ff7a1a;
+      --red: #e8590c;
       --cream: #fbf3ea;
       --text: #f4f4f4;
       --muted: #a8a29a;
       --card: #1b1713;
-      --navy: #1a3a52;
-      --cyan: #00d4ff;
-      --coral: #ff6b5b;
-      --teal: #4ecdc4;
+      --navy: #140a04;
+      --cyan: #ff7a1a;
+      --coral: #e8590c;
+      --teal: #ff7a1a;
     }
 
     * {
@@ -100,14 +100,7 @@
       max-width: none;
       left: -45.24%;
       top: -38.46%;
-      mix-blend-mode: lighten
-    }
-
-    .logoimg.ready img {
-      position: static;
-      width: 100%;
-      mix-blend-mode: normal;
-      display: block
+      filter: url(#kb)
     }
 
     #hero .logoimg {
@@ -909,8 +902,8 @@
     }
 
     .price {
-      background: linear-gradient(135deg, #e32a1a, #a31208);
-      border: 2px solid #ff9a3d55;
+      background: linear-gradient(135deg, #ff7a1a, #b84a00);
+      border: 2px solid #ff7a1a55;
       border-radius: 18px;
       padding: 20px 26px;
       margin: 16px 0
@@ -1007,7 +1000,7 @@
 
     /* end */
     #end {
-      background: linear-gradient(rgba(26, 58, 82, .93), rgba(26, 58, 82, .97)), url(https://images.unsplash.com/photo-1557804506-669a67965ba0?w=1400&q=60) center/cover;
+      background: linear-gradient(rgba(20,10,4,.94), rgba(20,10,4,.94)), url(https://images.unsplash.com/photo-1557804506-669a67965ba0?w=1400&q=60) center/cover;
       flex-direction: column;
       text-align: center;
       justify-content: center
@@ -1067,7 +1060,7 @@
     }
 
     #end em {
-      color: #cfd8e0
+      color: #e6d5c5
     }
 
     /* responsive */
@@ -1192,6 +1185,7 @@
 </head>
 
 <body>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true"><filter id="kb" color-interpolation-filters="sRGB"><feColorMatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  8 8 8 0 -0.8"/></filter></svg>
   <div id="progress"></div>
   <div id="topbar">
     <a href="#hero" class="logoimg" aria-label="ADVMEN"><img src="WhatsApp%20Image%202026-10-29%20at%204.36.05%20PM.jpeg" alt="ADVMEN – For Every Brandman"></a>
@@ -1218,15 +1212,15 @@
   <!-- WHY -->
   <section id="why">
     <div class="rv"><span class="tag">WHY SOCIAL MEDIA?</span>
-      <h2>Aapka Customer <em style="color:var(--orange)">Yahin Hai</em></h2>
-      <p class="lead" style="max-width:720px;margin:0 auto">Aaj ka customer dukaan se pehle phone par aapko dhoondhta
-        hai. Jo brand wahan nahi dikhta, woh market mein bhi nahi dikhta.</p>
+      <h2>Your Customer <em style="color:var(--orange)">Is Right Here</em></h2>
+      <p class="lead" style="max-width:720px;margin:0 auto">Today's customer searches for you on their phone before they ever visit your shop.
+        A brand that isn't visible there isn't visible in the market either.</p>
     </div>
     <div class="cards4 rv d1">
       <div class="bigstat"><b data-c="5" data-s="B+">0</b><span>Social media users worldwide</span></div>
-      <div class="bigstat"><b data-c="2" data-s="+ hrs">0</b><span>Roz ka average screen time</span></div>
-      <div class="bigstat"><b data-c="80" data-s="%">0</b><span>Log video dekhkar brand yaad rakhte hain*</span></div>
-      <div class="bigstat"><b data-c="10" data-s="x">0</b><span>Paid + organic se tezi se growth*</span></div>
+      <div class="bigstat"><b data-c="2" data-s="+ hrs">0</b><span>Average daily screen time</span></div>
+      <div class="bigstat"><b data-c="80" data-s="%">0</b><span>People remember a brand after watching its video*</span></div>
+      <div class="bigstat"><b data-c="10" data-s="x">0</b><span>Faster growth with paid + organic*</span></div>
     </div>
     <div class="funnel rv d2">
       <div>👀 Awareness</div>
@@ -1235,8 +1229,8 @@
       <div>🛒 Purchase</div>
       <div>❤️ Loyalty</div>
     </div>
-    <p style="color:var(--muted);font-size:11px;margin-top:14px">*Approximate industry estimates — results brand ke
-      hisaab se alag ho sakte hain.</p>
+    <p style="color:var(--muted);font-size:11px;margin-top:14px">*Approximate industry estimates — results may
+      vary from brand to brand.</p>
   </section>
 
   <!-- TOPIC SECTIONS RENDERED BY JS -->
@@ -1246,21 +1240,21 @@
   <section id="video" class="vsec">
     <div class="rv"><span class="tag">WATCH • VIDEO</span>
       <h2>Content <em style="color:var(--orange)">in Action</em></h2>
-      <p class="lead">Video sabse zyada reach aur trust deta hai — Reels, UGC aur ads, sab video-first.</p>
+      <p class="lead">Video delivers the most reach and trust — Reels, UGC and ads, all video-first.</p>
     </div>
     <div class="ugc rv d1">
       <div class="phone"><span class="live">● UGC</span>
         <video id="ugcv" controls playsinline muted></video>
-        <button id="snd" type="button">🔇 Awaaz ON karo</button>
-        <div class="ph"><b>🎬</b>UGC video load nahi hui<small>video files index.html ke folder mein honi chahiye</small></div>
+        <button id="snd" type="button">🔇 Turn sound ON</button>
+        <div class="ph"><b>🎬</b>UGC video failed to load<small>Video files must be in the same folder as index.html</small></div>
       </div>
       <div>
       <div class="thumbs" id="thumbs"></div>
       <ul class="ugcpts">
-        <li><b>Real &amp; Relatable</b>Asli log, asli bhasha — ads jaisa nahi, dost ki recommendation jaisa.</li>
-        <li><b>Trust Zyada</b>Log brand se zyada doosre customers par bharosa karte hain.</li>
-        <li><b>Low Cost, High Reach</b>Phone se shoot, Reels/Shorts/Ads — sab jagah chalta hai.</li>
-        <li><b>Har 2nd Din Shoot</b>15 ultra premium UGC shoots se content kabhi khatam nahi hota.</li>
+        <li><b>Real &amp; Relatable</b>Real people, real language — feels like a friend's recommendation, not an ad.</li>
+        <li><b>More Trust</b>People trust other customers more than they trust the brand itself.</li>
+        <li><b>Low Cost, High Reach</b>Shot on a phone, works across Reels, Shorts and Ads.</li>
+        <li><b>Shoot Every 2nd Day</b>15 ultra premium UGC shoots mean your content never runs out.</li>
       </ul>
       </div>
     </div>
@@ -1274,7 +1268,7 @@
   <!-- GALLERY -->
   <section id="gallery">
     <div class="head rv"><span class="tag">GALLERY</span>
-      <h2>Brand Ko <em style="color:var(--orange)">Dikhao</em></h2>
+      <h2>Showcase Your <em style="color:var(--orange)">Brand</em></h2>
     </div>
     <div class="marq rv d1">
       <div class="track" id="tr1"></div>
@@ -1288,25 +1282,25 @@
   <section id="road">
     <div class="rv" style="text-align:center"><span class="tag">30-DAY PLAN</span>
       <h2>Growth <em style="color:var(--orange)">Roadmap</em></h2>
-      <p class="lead" style="max-width:640px;margin:0 auto">Pehle mahine mein hi system set ho jata hai — yeh hai
+      <p class="lead" style="max-width:640px;margin:0 auto">Your system is set up within the first month — here is the
         step-by-step plan.</p>
     </div>
     <div class="tl rv d1">
       <div class="step"><i>1</i>
         <h4>Week 1 • Research</h4>
-        <p>Brand audit, competitor study, audience persona, goals aur KPIs fix.</p>
+        <p>Brand audit, competitor study, audience persona, goals and KPIs finalized.</p>
       </div>
       <div class="step"><i>2</i>
         <h4>Week 2 • Setup</h4>
-        <p>Profiles optimize, content calendar, first UGC shoots aur creatives ready.</p>
+        <p>Profiles optimized, content calendar built, first UGC shoots done and creatives ready.</p>
       </div>
       <div class="step"><i>3</i>
         <h4>Week 3 • Launch</h4>
-        <p>Daily posting start, Meta ads live, A/B testing aur community replies.</p>
+        <p>Daily posting starts, Meta ads go live, A/B testing and community replies begin.</p>
       </div>
       <div class="step"><i>4</i>
         <h4>Week 4 • Scale</h4>
-        <p>Analytics report, winning content scale, retargeting aur next-month strategy.</p>
+        <p>Analytics report, scale the winning content, retargeting and next-month strategy.</p>
       </div>
     </div>
   </section>
@@ -1369,59 +1363,59 @@
     const topics = [
       {
         id: 's1', n: '01', hc: '#ff7a1a', tag: 'GOALS', t: 'Define Your <em>Goals</em> & Objectives', sub: 'SMART Framework',
-        lead: 'Specific, Measurable, Achievable, Relevant, Time-bound — har goal ko number aur deadline do. KPIs batate hain ki aap sahi raste par ho ya nahi. Bina goal ke posting sirf time pass hai.',
-        pts: ['Brand Awareness badhana', 'Lead Generation', 'Website Traffic', 'Sales & Conversions', 'Engagement Growth', 'Customer Retention'],
-        ico: '📊', vt: 'Goals & Metrics', vd: 'KPI = woh number jo aapki success batata hai.', img: 'photo-1551288049-bebda4e38f71',
-        tip: 'Example: "Agle 90 din mein Instagram par 10,000 followers aur 100 leads lana."', st: [['10K', 'Followers'], ['100', 'Leads'], ['90', 'Days']]
+        lead: 'Specific, Measurable, Achievable, Relevant, Time-bound — give every goal a number and a deadline. KPIs tell you whether you are on the right track. Without a goal, posting is just a way to pass time.',
+        pts: ['Increase Brand Awareness', 'Lead Generation', 'Website Traffic', 'Sales & Conversions', 'Engagement Growth', 'Customer Retention'],
+        ico: '📊', vt: 'Goals & Metrics', vd: 'A KPI is the number that tells you whether you are succeeding.', img: 'photo-1551288049-bebda4e38f71',
+        tip: 'Example: "Gain 10,000 Instagram followers and 100 leads in the next 90 days."', st: [['10K', 'Followers'], ['100', 'Leads'], ['90', 'Days']]
       },
       {
-        id: 's2', n: '02', hc: '#00d4ff', tag: 'AUDIENCE', t: 'Know Your <em>Target Audience</em>', sub: 'Buyer Persona Banao',
-        lead: 'Jab tak pata nahi ki kisse baat kar rahe ho, content bekaar hai. Research karke ek clear persona banao — naam, age, kaam, problem aur kharidne ki wajah.',
-        pts: ['Demographics – age, gender, city', 'Interests & hobbies', 'Pain points & problems', 'Online behaviour & active time', 'Buying motivation', 'Competitor ki audience'],
-        ico: '👥', vt: 'Audience Analysis', vd: 'Sahi audience = sahi message = sahi result.', img: 'photo-1522202176988-66273c2fd55f',
-        tip: 'Apne top 10 customers se call karke pucho — woh kya search karte hain aur kyun kharidte hain.', st: [['3', 'Personas'], ['6', 'Research Areas'], ['1', 'Clear Message']]
+        id: 's2', n: '02', hc: '#e8590c', tag: 'AUDIENCE', t: 'Know Your <em>Target Audience</em>', sub: 'Build a Buyer Persona',
+        lead: 'Until you know who you are talking to, your content is wasted. Research and build a clear persona — name, age, occupation, problems and reasons to buy.',
+        pts: ['Demographics – age, gender, city', 'Interests & hobbies', 'Pain points & problems', 'Online behaviour & active time', 'Buying motivation', 'Competitor audience'],
+        ico: '👥', vt: 'Audience Analysis', vd: 'Right audience = right message = right result.', img: 'photo-1522202176988-66273c2fd55f',
+        tip: 'Call your top 10 customers and ask what they search for and why they buy.', st: [['3', 'Personas'], ['6', 'Research Areas'], ['1', 'Clear Message']]
       },
       {
-        id: 's3', n: '03', hc: '#4ecdc4', tag: 'PLATFORMS', t: 'Choose the <em>Right Platforms</em>', sub: '2–3 platform par master bano',
-        lead: 'Har platform par hona zaroori nahi. Wahan raho jahan aapki audience hai aur jahan aapka content format fit hota hai.',
+        id: 's3', n: '03', hc: '#ff7a1a', tag: 'PLATFORMS', t: 'Choose the <em>Right Platforms</em>', sub: 'Master 2–3 Platforms',
+        lead: 'You do not need to be on every platform. Be where your audience is and where your content format fits.',
         pts: ['Instagram – Reels & brand building', 'Facebook – community & ads', 'YouTube – long-form & Shorts', 'LinkedIn – B2B & professionals', 'X (Twitter) – news & talk', 'WhatsApp – direct customer connect'],
-        ico: '🌐', vt: 'Social Platforms', vd: 'Quality over quantity — chuno aur jeet lo.', img: 'photo-1611162617213-7d7a39e9b1d7',
+        ico: '🌐', vt: 'Social Platforms', vd: 'Quality over quantity — choose wisely and win.', img: 'photo-1611162617213-7d7a39e9b1d7',
         tip: 'B2C brand → Instagram + Facebook + YouTube. B2B brand → LinkedIn + YouTube + WhatsApp.', st: [['6', 'Platforms'], ['3', 'Focus'], ['1', 'Strategy']]
       },
       {
-        id: 's4', n: '04', hc: '#ff6b5b', tag: 'CONTENT', t: 'Create <em>Engaging</em> Content', sub: 'Variety + Content Calendar',
-        lead: 'Ek mahine ka content calendar pehle se plan karo. 40% education, 30% entertainment, 20% proof (reviews) aur 10% selling — yeh mix best chalta hai.',
+        id: 's4', n: '04', hc: '#e8590c', tag: 'CONTENT', t: 'Create <em>Engaging</em> Content', sub: 'Variety + Content Calendar',
+        lead: 'Plan a month-long content calendar in advance. 40% education, 30% entertainment, 20% proof (reviews) and 10% selling — this mix works best.',
         pts: ['Reels & short videos', 'UGC video shoots', 'Carousels & infographics', 'Stories & polls', 'Behind-the-scenes', 'Testimonials & case studies', 'Live sessions & Q&A'],
         ico: '🎨', vt: 'Content Creation', vd: 'Video first, story first, value first.', img: 'photo-1533750349088-cd871a92f312',
-        tip: 'Pehle 3 second mein hook do — warna audience scroll kar degi.', st: [['40%', 'Educate'], ['30%', 'Entertain'], ['30%', 'Proof+Sell']]
+        tip: 'Hook them in the first 3 seconds — otherwise the audience will scroll past.', st: [['40%', 'Educate'], ['30%', 'Entertain'], ['30%', 'Proof+Sell']]
       },
       {
-        id: 's5', n: '05', hc: '#ff7a1a', tag: 'SCHEDULE', t: '<em>Consistency</em> & Posting Schedule', sub: 'Roz dikho, tabhi yaad rahoge',
-        lead: 'Algorithm consistent accounts ko reward karta hai. Apni audience ke active time par post karo aur batch mein content shoot karo.',
+        id: 's5', n: '05', hc: '#ff7a1a', tag: 'SCHEDULE', t: '<em>Consistency</em> & Posting Schedule', sub: 'Show up daily to be remembered',
+        lead: 'The algorithm rewards consistent accounts. Post when your audience is active and shoot content in batches.',
         pts: ['Instagram – 4–7 posts/week + daily Stories', 'Facebook – 3–5 posts/week', 'YouTube – 1–2 videos/week', 'LinkedIn – 3 posts/week', 'Best time: 12–2 PM & 7–10 PM'],
-        ico: '⏰', vt: 'Posting Schedule', vd: 'Har 2nd din shoot, har din post.', img: 'photo-1506784983877-45594efa4cbe',
-        tip: 'Ek hi din 4–5 videos shoot karo, phir poore hafte schedule karo — time bachta hai.', st: [['7', 'Posts / Week'], ['2nd', 'Day Shoot'], ['30', 'Days Plan']]
+        ico: '⏰', vt: 'Posting Schedule', vd: 'Shoot every 2nd day, post every day.', img: 'photo-1506784983877-45594efa4cbe',
+        tip: 'Shoot 4–5 videos in a single day, then schedule them for the whole week — it saves time.', st: [['7', 'Posts / Week'], ['2nd', 'Day Shoot'], ['30', 'Days Plan']]
       },
       {
-        id: 's6', n: '06', hc: '#00d4ff', tag: 'COMMUNITY', t: 'Community <em>Management</em> & Engagement', sub: 'Followers nahi, fans banao',
-        lead: 'Social media ek conversation hai, broadcast nahi. Jawab do, judo aur relationship banao — loyal community hi sabse sasta marketing hai.',
-        pts: ['Comments ka jaldi reply', 'DMs ka fast response', 'Polls, quizzes & Q&A', 'Customer ko feature karo', 'Contests & giveaways', 'Influencer collaborations', 'Negative feedback calmly handle karo'],
+        id: 's6', n: '06', hc: '#e8590c', tag: 'COMMUNITY', t: 'Community <em>Management</em> & Engagement', sub: 'Build fans, not just followers',
+        lead: 'Social media is a conversation, not a broadcast. Reply, connect and build relationships — a loyal community is the cheapest marketing there is.',
+        pts: ['Reply to comments quickly', 'Respond to DMs fast', 'Polls, quizzes & Q&A', 'Feature your customers', 'Contests & giveaways', 'Influencer collaborations', 'Handle negative feedback calmly'],
         ico: '💬', vt: 'Community First', vd: 'Engaged community = loyal customers.', img: 'photo-1529156069898-49953e39b3ac',
-        tip: 'Pehle 1 ghante mein comment ka reply do — reach aur trust dono badhte hain.', st: [['1hr', 'Reply Time'], ['7', 'Tactics'], ['∞', 'Loyalty']]
+        tip: 'Reply to comments within the first hour — both reach and trust grow.', st: [['1hr', 'Reply Time'], ['7', 'Tactics'], ['∞', 'Loyalty']]
       },
       {
-        id: 's7', n: '07', hc: '#4ecdc4', tag: 'ANALYTICS', t: 'Analytics & <em>Measurement</em>', sub: 'Jo measure hota hai, wahi improve hota hai',
-        lead: 'Weekly report dekho. Jo kaam kar raha hai usse double karo, jo nahi kar raha use band karo. Data hi aapka sabse bada guru hai.',
+        id: 's7', n: '07', hc: '#ff7a1a', tag: 'ANALYTICS', t: 'Analytics & <em>Measurement</em>', sub: 'What gets measured gets improved',
+        lead: 'Review your weekly report. Double down on what works and stop what does not work. Data is your greatest teacher.',
         pts: ['Reach & Impressions', 'Engagement Rate', 'Follower Growth', 'Click-Through Rate (CTR)', 'Conversions', 'Cost per Lead', 'Video Watch Time', 'ROI / ROAS'],
         ico: '📈', vt: 'Analytics Dashboard', vd: 'Tools: Meta Insights, Google Analytics, Looker Studio.', img: 'photo-1460925895917-afdab827c52f',
         tip: 'Engagement Rate = (Likes + Comments + Shares + Saves) ÷ Reach × 100', st: [['8', 'Key Metrics'], ['Weekly', 'Reports'], ['ROI', 'Focus']]
       },
       {
-        id: 's8', n: '08', hc: '#ff6b5b', tag: 'ADS', t: 'Paid <em>Advertising</em> Strategies', sub: 'Organic + Paid = Fast Growth',
-        lead: 'Chhote budget se test karo, winning creative ko scale karo aur retargeting zaroor lagao. Ads tabhi chalte hain jab content pehle se strong ho.',
+        id: 's8', n: '08', hc: '#e8590c', tag: 'ADS', t: 'Paid <em>Advertising</em> Strategies', sub: 'Organic + Paid = Fast Growth',
+        lead: 'Test with a small budget, scale the winning creative and always run retargeting. Ads work best when your content is already strong.',
         pts: ['Meta Ads (Facebook + Instagram)', 'Google & YouTube Ads', 'LinkedIn Ads', 'Retargeting campaigns', 'A/B test creatives & audiences'],
         ico: '💰', vt: 'Paid Promotion', vd: 'Strategic ads = predictable growth.', img: 'photo-1553877522-43269d4ea984',
-        tip: 'Rule: 3 creatives × 3 audiences test karo, 3 din baad loser band, winner par budget double.', st: [['3×3', 'Test Matrix'], ['4', 'Ad Platforms'], ['2×', 'Scale Winner']]
+        tip: 'Rule: test 3 creatives × 3 audiences, stop the losers after 3 days and double the budget on the winner.', st: [['3×3', 'Test Matrix'], ['4', 'Ad Platforms'], ['2×', 'Scale Winner']]
       }
     ];
     const host = document.getElementById('topics');
@@ -1438,26 +1432,6 @@
  </div></div></section>`).join('');
 
     // gallery
-    // logo: crop + make black background transparent (needs http/https; falls back to CSS crop on file://)
-    (function () {
-      const im = new Image();
-      im.onload = () => {
-        try {
-          const c = document.createElement('canvas'); c.width = 840; c.height = 520;
-          const x = c.getContext('2d'); x.drawImage(im, 380, 200, 840, 520, 0, 0, 840, 520);
-          const d = x.getImageData(0, 0, 840, 520), p = d.data;
-          for (let i = 0; i < p.length; i += 4) {
-            const a = Math.max(p[i], p[i + 1], p[i + 2]);
-            if (a < 12) { p[i + 3] = 0; continue; }
-            p[i] = Math.min(255, p[i] * 255 / a); p[i + 1] = Math.min(255, p[i + 1] * 255 / a); p[i + 2] = Math.min(255, p[i + 2] * 255 / a); p[i + 3] = a;
-          }
-          x.putImageData(d, 0, 0);
-          const url = c.toDataURL('image/png');
-          document.querySelectorAll('.logoimg').forEach(w => { w.querySelector('img').src = url; w.classList.add('ready') });
-        } catch (e) { }
-      };
-      im.src = 'WhatsApp%20Image%202026-10-29%20at%204.36.05%20PM.jpeg';
-    })();
 
     const imgs = ['07 PM.jpeg', '07 PM (1).jpeg', '07 PM (2).jpeg', '08 PM.jpeg', '09 PM.jpeg', '09 PM (1).jpeg', '09 PM (2).jpeg', '10 PM.jpeg', '10 PM (1).jpeg', '12 PM.jpeg', '12 PM (1).jpeg', '12 PM (2).jpeg', '13 PM.jpeg']
       .map(s => 'WhatsApp Image 2026-10-29 at 4.32.' + s);
