@@ -1,0 +1,1516 @@
+<!DOCTYPE html>
+<html lang="hi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>ADVMEN – Social Media Marketing</title>
+  <link rel="icon" href="WhatsApp%20Image%202026-10-29%20at%204.36.05%20PM.jpeg">
+  <style>
+    :root {
+      --bg: #0b0b0d;
+      --orange: #ff7a1a;
+      --orange2: #ff9a3d;
+      --red: #d62012;
+      --cream: #fbf3ea;
+      --text: #f4f4f4;
+      --muted: #a8a29a;
+      --card: #1b1713;
+      --navy: #1a3a52;
+      --cyan: #00d4ff;
+      --coral: #ff6b5b;
+      --teal: #4ecdc4;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-snap-type: y proximity
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: "Segoe UI", Calibri, Arial, sans-serif;
+      overflow-x: hidden
+    }
+
+    img,
+    video {
+      max-width: 100%
+    }
+
+    h1,
+    h2,
+    h3,
+    h4 {
+      font-family: Arial, "Segoe UI", sans-serif;
+      text-transform: uppercase;
+      letter-spacing: .5px;
+      line-height: 1.08
+    }
+
+    ::selection {
+      background: var(--orange);
+      color: #000
+    }
+
+    /* chrome */
+    #progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 4px;
+      width: 0;
+      background: linear-gradient(90deg, var(--orange), var(--red));
+      z-index: 100
+    }
+
+    #topbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 28px;
+      z-index: 90;
+      background: linear-gradient(#000d, #0000);
+      pointer-events: none
+    }
+
+    .logoimg {
+      display: block;
+      width: var(--lw, 90px);
+      aspect-ratio: 5/3;
+      overflow: hidden;
+      position: relative
+    }
+
+    .logoimg img {
+      position: absolute;
+      width: 200%;
+      max-width: none;
+      left: -50%;
+      top: -27.5%;
+      mix-blend-mode: lighten
+    }
+
+    #hero .logoimg {
+      --lw: clamp(240px, 36vw, 400px);
+      margin: 0 auto 6px
+    }
+
+    .logo {
+      font-weight: 900;
+      letter-spacing: 6px;
+      font-size: 18px
+    }
+
+    .logo b {
+      color: var(--orange)
+    }
+
+    #counter {
+      font-weight: 700;
+      font-size: 14px;
+      color: var(--muted)
+    }
+
+    #counter span {
+      color: var(--orange);
+      font-size: 18px
+    }
+
+    #dots {
+      position: fixed;
+      right: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+      z-index: 90
+    }
+
+    #dots a {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #555;
+      transition: .3s;
+      display: block
+    }
+
+    #dots a:hover {
+      background: var(--orange2);
+      transform: scale(1.4)
+    }
+
+    #dots a.active {
+      background: var(--orange);
+      transform: scale(1.5);
+      box-shadow: 0 0 10px var(--orange)
+    }
+
+    #nav {
+      position: fixed;
+      right: 16px;
+      bottom: calc(16px + env(safe-area-inset-bottom));
+      display: flex;
+      gap: 8px;
+      z-index: 90
+    }
+
+    #nav button {
+      width: 46px;
+      height: 46px;
+      border: 0;
+      border-radius: 50%;
+      background: var(--orange);
+      color: #000;
+      font-size: 20px;
+      font-weight: 900;
+      cursor: pointer;
+      transition: .2s
+    }
+
+    #nav button:hover {
+      transform: scale(1.1);
+      background: var(--orange2)
+    }
+
+    /* sections */
+    section {
+      min-height: 100vh;
+      min-height: 100svh;
+      scroll-snap-align: start;
+      position: relative;
+      display: flex;
+      align-items: center;
+      padding: 96px 7vw 64px;
+      overflow: hidden
+    }
+
+    .wrap {
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: clamp(24px, 4vw, 56px);
+      align-items: center;
+      position: relative;
+      z-index: 1
+    }
+
+    .tag {
+      display: inline-block;
+      background: var(--hc, var(--orange));
+      color: #000;
+      font-weight: 800;
+      padding: 6px 16px;
+      border-radius: 30px;
+      font-size: 12px;
+      letter-spacing: 2px;
+      margin-bottom: 16px
+    }
+
+    section h2 {
+      font-size: clamp(30px, 4.6vw, 60px);
+      margin-bottom: 12px
+    }
+
+    section h2 em {
+      font-style: normal;
+      color: var(--hc, var(--orange))
+    }
+
+    .sub {
+      font-size: clamp(16px, 1.7vw, 21px);
+      font-weight: 700;
+      color: var(--hc, var(--orange));
+      margin-bottom: 12px
+    }
+
+    p.lead {
+      color: #d6d0c8;
+      line-height: 1.7;
+      font-size: clamp(14px, 1.25vw, 17px);
+      margin-bottom: 16px
+    }
+
+    ul.pts {
+      list-style: none;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 9px
+    }
+
+    ul.pts li {
+      background: #ffffff0d;
+      border-left: 4px solid var(--hc, var(--orange));
+      padding: 9px 12px;
+      border-radius: 0 10px 10px 0;
+      font-size: clamp(12.5px, 1.1vw, 15px);
+      transition: .3s;
+      line-height: 1.35
+    }
+
+    ul.pts li:hover {
+      transform: translateX(6px);
+      background: #ffffff18
+    }
+
+    .tip {
+      margin-top: 16px;
+      background: linear-gradient(90deg, color-mix(in srgb, var(--hc, var(--orange)) 22%, transparent), transparent);
+      border: 1px dashed var(--hc, var(--orange));
+      border-radius: 12px;
+      padding: 12px 16px;
+      font-size: clamp(13px, 1.1vw, 15px);
+      line-height: 1.5
+    }
+
+    .tip b {
+      color: var(--hc, var(--orange))
+    }
+
+    .num {
+      position: absolute;
+      right: 5vw;
+      bottom: -30px;
+      font-size: clamp(140px, 24vw, 340px);
+      font-weight: 900;
+      font-family: Arial;
+      color: #ffffff07;
+      line-height: 1;
+      pointer-events: none
+    }
+
+    /* visual card w/ image */
+    .visual {
+      background: var(--card);
+      border: 2px solid var(--hc, var(--orange));
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 0 50px color-mix(in srgb, var(--hc, var(--orange)) 25%, transparent);
+      transition: .4s
+    }
+
+    .visual:hover {
+      transform: translateY(-6px)
+    }
+
+    .photo {
+      position: relative;
+      aspect-ratio: 16/10;
+      background: linear-gradient(135deg, var(--hc, var(--orange)), #111);
+      overflow: hidden
+    }
+
+    .photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 1.2s
+    }
+
+    .visual:hover .photo img {
+      transform: scale(1.08)
+    }
+
+    .photo::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(transparent 50%, #000a)
+    }
+
+    .badge {
+      position: absolute;
+      left: 16px;
+      bottom: -26px;
+      z-index: 2;
+      width: 64px;
+      height: 64px;
+      border-radius: 18px;
+      background: var(--hc, var(--orange));
+      display: grid;
+      place-items: center;
+      font-size: 34px;
+      box-shadow: 0 8px 24px #0009;
+      animation: float 3.5s ease-in-out infinite
+    }
+
+    .vtxt {
+      padding: 38px 20px 20px
+    }
+
+    .vtxt h3 {
+      font-size: 22px;
+      color: var(--hc, var(--orange));
+      margin-bottom: 6px
+    }
+
+    .vtxt p {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.6
+    }
+
+    .mini {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      margin-top: 14px
+    }
+
+    .mini div {
+      background: #ffffff0d;
+      border-radius: 10px;
+      padding: 8px 4px;
+      text-align: center
+    }
+
+    .mini b {
+      display: block;
+      font-size: 19px;
+      color: var(--hc, var(--orange));
+      font-family: Arial
+    }
+
+    .mini span {
+      font-size: 11px;
+      color: var(--muted)
+    }
+
+    @keyframes float {
+      50% {
+        transform: translateY(-12px)
+      }
+    }
+
+    /* reveal */
+    .rv {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity .8s ease, transform .8s ease
+    }
+
+    .rv.l {
+      transform: translateX(-60px)
+    }
+
+    .rv.r {
+      transform: translateX(60px)
+    }
+
+    .rv.in {
+      opacity: 1;
+      transform: none
+    }
+
+    .rv.d1 {
+      transition-delay: .15s
+    }
+
+    .rv.d2 {
+      transition-delay: .3s
+    }
+
+    .rv.d3 {
+      transition-delay: .45s
+    }
+
+    /* hero */
+    #hero {
+      justify-content: center;
+      text-align: center
+    }
+
+    .bgvid {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: .4;
+      z-index: 0
+    }
+
+    #hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 50% 40%, #0000, #0b0b0d 88%);
+      z-index: 1
+    }
+
+    #hero .inner {
+      position: relative;
+      z-index: 2;
+      max-width: 1000px
+    }
+
+    #hero .brand {
+      font-size: 22px;
+      letter-spacing: 12px;
+      font-weight: 900;
+      margin-bottom: 6px
+    }
+
+    #hero .brand b {
+      color: var(--orange)
+    }
+
+    #hero small {
+      color: var(--muted);
+      letter-spacing: 4px
+    }
+
+    #hero h1 {
+      font-size: clamp(40px, 8vw, 108px);
+      margin: 24px 0 10px;
+      color: #fff
+    }
+
+    #hero h1 span {
+      color: var(--orange);
+      display: block
+    }
+
+    #hero .line {
+      width: 0;
+      height: 5px;
+      background: var(--orange);
+      margin: 18px auto;
+      border-radius: 4px;
+      animation: grow 1.4s .5s forwards
+    }
+
+    @keyframes grow {
+      to {
+        width: 160px
+      }
+    }
+
+    #hero .sub2 {
+      font-size: clamp(17px, 2.3vw, 27px);
+      color: var(--cyan);
+      margin-bottom: 10px
+    }
+
+    #hero .tagline {
+      font-style: italic;
+      color: #ccc;
+      animation: float 4s infinite
+    }
+
+    .cta {
+      display: inline-block;
+      margin-top: 26px;
+      background: linear-gradient(90deg, var(--orange), var(--orange2));
+      color: #000;
+      font-weight: 900;
+      padding: 15px 34px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-size: clamp(14px, 1.4vw, 18px);
+      text-transform: uppercase;
+      transition: .25s
+    }
+
+    .cta:hover {
+      transform: scale(1.07);
+      box-shadow: 0 0 30px var(--orange)
+    }
+
+    .scrollhint {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      color: var(--muted);
+      font-size: 12px;
+      letter-spacing: 3px;
+      animation: float 2s infinite
+    }
+
+    /* why / stats */
+    #why {
+      background: radial-gradient(circle at 20% 20%, #2b1606, #0b0b0d 60%);
+      flex-direction: column;
+      justify-content: center;
+      text-align: center
+    }
+
+    .cards4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      max-width: 1100px;
+      width: 100%;
+      margin: 28px auto 0
+    }
+
+    .bigstat {
+      background: var(--card);
+      border: 1px solid #ff7a1a55;
+      border-radius: 18px;
+      padding: 24px 14px;
+      transition: .3s
+    }
+
+    .bigstat:hover {
+      transform: translateY(-8px);
+      border-color: var(--orange);
+      box-shadow: 0 10px 40px #ff7a1a33
+    }
+
+    .bigstat b {
+      display: block;
+      font-size: clamp(32px, 4vw, 52px);
+      color: var(--orange);
+      font-family: Arial
+    }
+
+    .bigstat span {
+      color: var(--muted);
+      font-size: 14px
+    }
+
+    .funnel {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 28px
+    }
+
+    .funnel div {
+      background: #ffffff10;
+      border-radius: 30px;
+      padding: 10px 22px;
+      font-weight: 700;
+      font-size: 14px
+    }
+
+    .funnel div:nth-child(odd) {
+      background: #ff7a1a22;
+      color: var(--orange2)
+    }
+
+    /* video */
+    .vsec {
+      background: #000;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center
+    }
+
+    .vgrid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 20px;
+      max-width: 1100px;
+      width: 100%;
+      margin: 24px auto 0
+    }
+
+    .vbox {
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      border: 3px solid var(--orange);
+      box-shadow: 0 0 70px #ff7a1a44;
+      background: #111;
+      aspect-ratio: 16/9
+    }
+
+    .vbox video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block
+    }
+
+    .vbox .live {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: var(--red);
+      padding: 5px 12px;
+      border-radius: 6px;
+      font-weight: 800;
+      font-size: 11px;
+      letter-spacing: 2px;
+      z-index: 2
+    }
+
+    .vbox .cap {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      padding: 26px 16px 12px;
+      background: linear-gradient(transparent, #000d);
+      text-align: left;
+      font-weight: 700;
+      pointer-events: none;
+      font-size: 14px
+    }
+
+    .ugc{display:grid;grid-template-columns:auto 1fr;gap:clamp(24px,4vw,56px);align-items:center;max-width:900px;width:100%;margin:24px auto 0;text-align:left}
+    .phone{position:relative;width:min(300px,70vw);aspect-ratio:9/16;max-height:62vh;border-radius:34px;border:8px solid #222;outline:3px solid var(--orange);overflow:hidden;background:#111;box-shadow:0 0 70px #ff7a1a44;margin:0 auto}
+    .phone video{width:100%;height:100%;object-fit:cover;display:block}
+    .phone .live{position:absolute;top:12px;left:12px;background:var(--red);padding:5px 12px;border-radius:6px;font-weight:800;font-size:11px;letter-spacing:2px;z-index:2}
+    .ph{display:none;position:absolute;inset:0;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:20px;gap:8px;background:linear-gradient(160deg,#2b1606,#111);font-weight:700}
+    .ph b{font-size:52px}.ph small{color:var(--muted);font-weight:400;line-height:1.5}
+    .phone.empty .ph{display:flex}.phone.empty video{display:none}
+    .ugcpts{list-style:none;display:grid;gap:12px}
+    .ugcpts li{background:#ffffff0d;border-left:4px solid var(--orange);border-radius:0 12px 12px 0;padding:12px 16px;font-size:14px;color:#cfc9c0;line-height:1.5}
+    .ugcpts b{display:block;color:var(--orange);text-transform:uppercase;font-size:14px;margin-bottom:2px}
+    #snd{position:absolute;top:12px;right:12px;z-index:3;border:0;border-radius:20px;background:var(--orange);color:#000;font-weight:800;font-size:12px;padding:7px 12px;cursor:pointer;animation:float 2s infinite}
+    #snd.off{display:none}
+    .thumbs{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:14px}
+    .thumbs button{position:relative;aspect-ratio:9/16;border:2px solid #333;border-radius:10px;overflow:hidden;background:#111;padding:0;cursor:pointer;transition:.25s}
+    .thumbs button:hover{transform:translateY(-4px);border-color:var(--orange2)}
+    .thumbs button.on{border-color:var(--orange);box-shadow:0 0 18px var(--orange)}
+    .thumbs video{width:100%;height:100%;object-fit:cover;display:block;pointer-events:none}
+    .thumbs span{position:absolute;left:4px;bottom:4px;background:#000b;border-radius:6px;font-size:11px;font-weight:800;padding:1px 6px}
+    .ugcpts li{padding:8px 14px;font-size:13px}
+    @media(max-width:700px){.ugc{grid-template-columns:1fr}.ugcpts{display:none}}
+
+    .stats {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 24px
+    }
+
+    .stat {
+      background: var(--card);
+      border: 1px solid #ff7a1a55;
+      border-radius: 16px;
+      padding: 14px 26px;
+      min-width: 140px
+    }
+
+    .stat b {
+      display: block;
+      font-size: 32px;
+      color: var(--orange);
+      font-family: Arial
+    }
+
+    .stat span {
+      color: var(--muted);
+      font-size: 13px
+    }
+
+    /* gallery marquee */
+    #gallery {
+      background: #0f0c09;
+      flex-direction: column;
+      justify-content: center;
+      padding-left: 0;
+      padding-right: 0
+    }
+
+    #gallery .head {
+      text-align: center;
+      padding: 0 7vw
+    }
+
+    .marq {
+      overflow: hidden;
+      margin-top: 26px;
+      width: 100%;
+      mask-image: linear-gradient(90deg, #0000, #000 8%, #000 92%, #0000)
+    }
+
+    .track {
+      display: flex;
+      gap: 16px;
+      width: max-content;
+      animation: slide 40s linear infinite
+    }
+
+    .marq.rev .track {
+      animation-direction: reverse;
+      animation-duration: 50s
+    }
+
+    .marq:hover .track {
+      animation-play-state: paused
+    }
+
+    .track figure {
+      width: clamp(200px, 24vw, 320px);
+      aspect-ratio: 1/1;
+      cursor: zoom-in;
+      border-radius: 18px;
+      overflow: hidden;
+      position: relative;
+      background: linear-gradient(135deg, var(--orange), #222);
+      flex: none
+    }
+
+    .track img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: .5s
+    }
+
+    .track figure:hover img {
+      transform: scale(1.1)
+    }
+
+    .track figcaption {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      padding: 22px 12px 10px;
+      background: linear-gradient(transparent, #000c);
+      font-weight: 700;
+      font-size: 13px;
+      text-transform: uppercase
+    }
+
+    #lb {
+      position: fixed;
+      inset: 0;
+      z-index: 200;
+      background: #000e;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      cursor: zoom-out
+    }
+
+    #lb.on {
+      display: flex
+    }
+
+    #lb img {
+      max-width: 100%;
+      max-height: 100%;
+      border-radius: 14px;
+      box-shadow: 0 0 60px #ff7a1a66
+    }
+
+    @keyframes slide {
+      to {
+        transform: translateX(-50%)
+      }
+    }
+
+    /* roadmap */
+    #road {
+      flex-direction: column;
+      justify-content: center;
+      background: linear-gradient(160deg, #0b0b0d, #14100b)
+    }
+
+    .tl {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      max-width: 1150px;
+      width: 100%;
+      margin: 30px auto 0;
+      position: relative
+    }
+
+    .tl::before {
+      content: "";
+      position: absolute;
+      top: 28px;
+      left: 6%;
+      right: 6%;
+      height: 3px;
+      background: linear-gradient(90deg, var(--orange), var(--red));
+      opacity: .6
+    }
+
+    .step {
+      position: relative;
+      background: var(--card);
+      border-radius: 18px;
+      padding: 60px 16px 18px;
+      border: 1px solid #ffffff14;
+      text-align: left;
+      transition: .3s
+    }
+
+    .step:hover {
+      transform: translateY(-8px);
+      border-color: var(--orange)
+    }
+
+    .step i {
+      position: absolute;
+      top: -6px;
+      left: 16px;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: var(--orange);
+      color: #000;
+      font-style: normal;
+      font-weight: 900;
+      font-size: 20px;
+      display: grid;
+      place-items: center;
+      box-shadow: 0 0 0 6px var(--bg)
+    }
+
+    .step h4 {
+      color: var(--orange);
+      margin-bottom: 8px;
+      font-size: 17px
+    }
+
+    .step p {
+      color: #cfc9c0;
+      font-size: 13.5px;
+      line-height: 1.55
+    }
+
+    /* package */
+    #package {
+      background: linear-gradient(160deg, #0b0b0d, #1d130a)
+    }
+
+    #package .wrap {
+      grid-template-columns: 1fr 1fr
+    }
+
+    .price {
+      background: linear-gradient(135deg, #e32a1a, #a31208);
+      border: 2px solid #ff9a3d55;
+      border-radius: 18px;
+      padding: 20px 26px;
+      margin: 16px 0
+    }
+
+    .price s {
+      font-size: 22px;
+      opacity: .85
+    }
+
+    .price b {
+      display: block;
+      font-size: clamp(30px, 4.6vw, 56px);
+      font-family: Arial;
+      text-transform: uppercase
+    }
+
+    .addons {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px
+    }
+
+    .addon {
+      background: linear-gradient(180deg, var(--orange), #3a1c06);
+      border-radius: 16px;
+      padding: 14px
+    }
+
+    .addon h4 {
+      font-size: 17px;
+      color: #000
+    }
+
+    .addon small {
+      display: block;
+      margin-top: 10px
+    }
+
+    .addon b {
+      font-size: 28px;
+      font-family: Arial
+    }
+
+    .feat {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px
+    }
+
+    .f {
+      background: var(--cream);
+      color: #1a1a1a;
+      border-radius: 14px;
+      padding: 14px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 700;
+      font-size: 13.5px;
+      text-transform: uppercase;
+      transition: .3s
+    }
+
+    .f:hover {
+      transform: scale(1.05) rotate(-1deg);
+      box-shadow: 0 0 25px var(--orange)
+    }
+
+    .f i {
+      font-style: normal;
+      font-size: 26px
+    }
+
+    .guar {
+      margin-top: 14px;
+      border: 2px solid #ff7a1a88;
+      border-radius: 16px;
+      padding: 12px 16px;
+      display: flex;
+      gap: 14px;
+      align-items: center
+    }
+
+    .guar i {
+      font-style: normal;
+      font-size: 36px
+    }
+
+    .guar b {
+      color: var(--orange);
+      text-transform: uppercase
+    }
+
+    /* end */
+    #end {
+      background: linear-gradient(rgba(26, 58, 82, .93), rgba(26, 58, 82, .97)), url(https://images.unsplash.com/photo-1557804506-669a67965ba0?w=1400&q=60) center/cover;
+      flex-direction: column;
+      text-align: center;
+      justify-content: center
+    }
+
+    #end .bar {
+      background: var(--cyan);
+      color: var(--navy);
+      padding: 16px 44px;
+      border-radius: 12px;
+      font-size: clamp(26px, 4vw, 46px);
+      font-weight: 900;
+      font-family: Arial;
+      margin-bottom: 30px
+    }
+
+    .tk {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px 50px;
+      max-width: 1000px;
+      text-align: left
+    }
+
+    .tk div {
+      font-size: clamp(14px, 1.6vw, 20px);
+      padding: 9px 14px;
+      transition: .3s;
+      border-radius: 10px
+    }
+
+    .tk div:hover {
+      transform: scale(1.04);
+      background: #ffffff14
+    }
+
+    .tk div::before {
+      content: "✓ ";
+      color: var(--cyan);
+      font-weight: 900
+    }
+
+    .pulse {
+      width: 160px;
+      height: 5px;
+      background: var(--cyan);
+      margin: 30px auto 14px;
+      border-radius: 5px;
+      animation: pulse 2s infinite
+    }
+
+    @keyframes pulse {
+      50% {
+        opacity: .3;
+        transform: scaleX(1.5)
+      }
+    }
+
+    #end em {
+      color: #cfd8e0
+    }
+
+    /* responsive */
+    @media(max-width:1024px) {
+
+      .cards4,
+      .tl {
+        grid-template-columns: repeat(2, 1fr)
+      }
+
+      .tl::before {
+        display: none
+      }
+
+      .step {
+        padding-top: 56px
+      }
+    }
+
+    @media(max-width:900px) {
+      html {
+        scroll-snap-type: none
+      }
+
+      .wrap,
+      #package .wrap {
+        grid-template-columns: 1fr
+      }
+
+      #dots {
+        display: none
+      }
+
+      section {
+        padding: 80px 6vw 70px;
+        align-items: flex-start
+      }
+
+      #hero,
+      .vsec,
+      #why,
+      #gallery,
+      #road,
+      #end {
+        align-items: center
+      }
+
+      .tk {
+        grid-template-columns: 1fr
+      }
+
+      .vgrid {
+        grid-template-columns: 1fr
+      }
+
+      .vbox.tall {
+        aspect-ratio: 16/9;
+        height: auto;
+        min-height: 0;
+        width: 100%
+      }
+
+      .vgrid>* {
+        min-width: 0
+      }
+
+      #topbar {
+        padding: 12px 16px
+      }
+
+      .logo {
+        font-size: 15px;
+        letter-spacing: 4px
+      }
+
+      .num {
+        font-size: 130px
+      }
+    }
+
+    @media(max-width:560px) {
+
+      ul.pts,
+      .feat,
+      .addons {
+        grid-template-columns: 1fr
+      }
+
+      .cards4,
+      .tl {
+        grid-template-columns: 1fr
+      }
+
+      #hero .brand {
+        letter-spacing: 7px;
+        font-size: 18px
+      }
+
+      #nav button {
+        width: 42px;
+        height: 42px
+      }
+
+      .stat {
+        min-width: 0;
+        flex: 1 1 40%
+      }
+    }
+
+    @media(prefers-reduced-motion:reduce) {
+      * {
+        animation: none !important;
+        transition: none !important
+      }
+
+      .rv {
+        opacity: 1;
+        transform: none
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="progress"></div>
+  <div id="topbar">
+    <a href="#hero" class="logoimg" aria-label="ADVMEN"><img src="WhatsApp%20Image%202026-10-29%20at%204.36.05%20PM.jpeg" alt="ADVMEN – For Every Brandman"></a>
+    <div id="counter"><span id="cur">1</span> / <span id="tot">1</span></div>
+  </div>
+  <div id="dots"></div>
+  <div id="nav"><button id="prev" aria-label="Previous">↑</button><button id="next" aria-label="Next">↓</button></div>
+
+  <!-- HERO -->
+  <section id="hero">
+    <video class="bgvid vid" autoplay muted loop playsinline data-src="video.mp4"
+      data-fallback="https://videos.pexels.com/video-files/3129671/3129671-sd_640_360_30fps.mp4"></video>
+    <div class="inner">
+      <div class="logoimg"><img src="WhatsApp%20Image%202026-10-29%20at%204.36.05%20PM.jpeg" alt="ADVMEN – For Every Brandman"></div>
+      <h1>Social Media <span>Marketing</span></h1>
+      <div class="line"></div>
+      <div class="sub2">8 Essential Strategies for Success</div>
+      <div class="tagline">Build. Automate. Grow.</div>
+      <a href="#why" class="cta">Start Scrolling ↓</a>
+    </div>
+    <div class="scrollhint">SCROLL</div>
+  </section>
+
+  <!-- WHY -->
+  <section id="why">
+    <div class="rv"><span class="tag">WHY SOCIAL MEDIA?</span>
+      <h2>Aapka Customer <em style="color:var(--orange)">Yahin Hai</em></h2>
+      <p class="lead" style="max-width:720px;margin:0 auto">Aaj ka customer dukaan se pehle phone par aapko dhoondhta
+        hai. Jo brand wahan nahi dikhta, woh market mein bhi nahi dikhta.</p>
+    </div>
+    <div class="cards4 rv d1">
+      <div class="bigstat"><b data-c="5" data-s="B+">0</b><span>Social media users worldwide</span></div>
+      <div class="bigstat"><b data-c="2" data-s="+ hrs">0</b><span>Roz ka average screen time</span></div>
+      <div class="bigstat"><b data-c="80" data-s="%">0</b><span>Log video dekhkar brand yaad rakhte hain*</span></div>
+      <div class="bigstat"><b data-c="10" data-s="x">0</b><span>Paid + organic se tezi se growth*</span></div>
+    </div>
+    <div class="funnel rv d2">
+      <div>👀 Awareness</div>
+      <div>💡 Interest</div>
+      <div>🤝 Trust</div>
+      <div>🛒 Purchase</div>
+      <div>❤️ Loyalty</div>
+    </div>
+    <p style="color:var(--muted);font-size:11px;margin-top:14px">*Approximate industry estimates — results brand ke
+      hisaab se alag ho sakte hain.</p>
+  </section>
+
+  <!-- TOPIC SECTIONS RENDERED BY JS -->
+  <div id="topics"></div>
+
+  <!-- VIDEO SHOWCASE -->
+  <section id="video" class="vsec">
+    <div class="rv"><span class="tag">WATCH • VIDEO</span>
+      <h2>Content <em style="color:var(--orange)">in Action</em></h2>
+      <p class="lead">Video sabse zyada reach aur trust deta hai — Reels, UGC aur ads, sab video-first.</p>
+    </div>
+    <div class="ugc rv d1">
+      <div class="phone"><span class="live">● UGC</span>
+        <video id="ugcv" controls playsinline muted></video>
+        <button id="snd" type="button">🔇 Awaaz ON karo</button>
+        <div class="ph"><b>🎬</b>UGC video load nahi hui<small>video files index.html ke folder mein honi chahiye</small></div>
+      </div>
+      <div>
+      <div class="thumbs" id="thumbs"></div>
+      <ul class="ugcpts">
+        <li><b>Real &amp; Relatable</b>Asli log, asli bhasha — ads jaisa nahi, dost ki recommendation jaisa.</li>
+        <li><b>Trust Zyada</b>Log brand se zyada doosre customers par bharosa karte hain.</li>
+        <li><b>Low Cost, High Reach</b>Phone se shoot, Reels/Shorts/Ads — sab jagah chalta hai.</li>
+        <li><b>Har 2nd Din Shoot</b>15 ultra premium UGC shoots se content kabhi khatam nahi hota.</li>
+      </ul>
+      </div>
+    </div>
+    <div class="stats rv d2">
+      <div class="stat"><b data-c="1" data-s="M">0</b><span>Reach Target</span></div>
+      <div class="stat"><b data-c="15">0</b><span>UGC Video Shoots</span></div>
+      <div class="stat"><b data-c="30">0</b><span>Posts / Month</span></div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section id="gallery">
+    <div class="head rv"><span class="tag">GALLERY</span>
+      <h2>Brand Ko <em style="color:var(--orange)">Dikhao</em></h2>
+    </div>
+    <div class="marq rv d1">
+      <div class="track" id="tr1"></div>
+    </div>
+    <div class="marq rev rv d2">
+      <div class="track" id="tr2"></div>
+    </div>
+  </section>
+
+  <!-- ROADMAP -->
+  <section id="road">
+    <div class="rv" style="text-align:center"><span class="tag">30-DAY PLAN</span>
+      <h2>Growth <em style="color:var(--orange)">Roadmap</em></h2>
+      <p class="lead" style="max-width:640px;margin:0 auto">Pehle mahine mein hi system set ho jata hai — yeh hai
+        step-by-step plan.</p>
+    </div>
+    <div class="tl rv d1">
+      <div class="step"><i>1</i>
+        <h4>Week 1 • Research</h4>
+        <p>Brand audit, competitor study, audience persona, goals aur KPIs fix.</p>
+      </div>
+      <div class="step"><i>2</i>
+        <h4>Week 2 • Setup</h4>
+        <p>Profiles optimize, content calendar, first UGC shoots aur creatives ready.</p>
+      </div>
+      <div class="step"><i>3</i>
+        <h4>Week 3 • Launch</h4>
+        <p>Daily posting start, Meta ads live, A/B testing aur community replies.</p>
+      </div>
+      <div class="step"><i>4</i>
+        <h4>Week 4 • Scale</h4>
+        <p>Analytics report, winning content scale, retargeting aur next-month strategy.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PACKAGE -->
+  <section id="package">
+    <div class="wrap">
+      <div class="rv l">
+        <span class="tag">ADVMEN OFFER</span>
+        <h2>Ultra Premium <em>Brand Growth</em> Package</h2>
+        <p class="lead">Premium Content | Strategic Ads | 1M Reach | Real Growth</p>
+        <div class="price"><s>₹99,999/-</s><b>Now Only ₹65,000/-</b></div>
+        <div class="addons">
+          <div class="addon">
+            <h4>🌐 Website Development</h4><small>Starting at</small><b>₹15,000</b>
+          </div>
+          <div class="addon">
+            <h4>📱 App Development</h4><small>Starting at</small><b>₹60,000</b>
+          </div>
+        </div>
+        <div class="guar"><i>🛡️</i>
+          <div><b>Money-Back Guarantee — only for Brand Growth</b><br><small style="color:var(--muted)">No results? Get
+              your money back.* T&amp;C apply.</small></div>
+        </div>
+        <a class="cta" href="#end">Get Started Now →</a>
+      </div>
+      <div class="feat rv r d1">
+        <div class="f"><i>📷</i>15 Ultra Premium UGC Video Shoots (Every 2nd Day)</div>
+        <div class="f"><i>📣</i>Daily Social Media Posting</div>
+        <div class="f"><i>♾️</i>Monthly Unlimited Posts</div>
+        <div class="f"><i>📈</i>1 Million Reach Guarantee</div>
+        <div class="f"><i>📊</i>Advanced Performance Analysis</div>
+        <div class="f"><i>Ⓜ️</i>Meta Ad Budget Included</div>
+        <div class="f"><i>💡</i>Complete Brand Growth Strategy</div>
+        <div class="f"><i>⭐</i>Premium Brand Positioning</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- END -->
+  <section id="end">
+    <div class="bar rv">KEY TAKEAWAYS</div>
+    <div class="tk rv d1">
+      <div>Set clear, SMART goals before launching</div>
+      <div>Post consistently at optimal times</div>
+      <div>Understand your audience deeply</div>
+      <div>Build a responsive, engaged community</div>
+      <div>Focus on 2–3 platforms you can master</div>
+      <div>Measure everything with analytics</div>
+      <div>Create diverse, engaging content</div>
+      <div>Invest in paid ads to amplify reach</div>
+    </div>
+    <div class="pulse"></div>
+    <em>Build Your Brand. Automate Your Growth. Achieve Results.</em>
+    <a class="cta" href="#hero">↑ Back to Top</a>
+  </section>
+
+  <script>
+    const U = id => `https://images.unsplash.com/${id}?auto=format&fit=crop&w=900&q=70`;
+    const topics = [
+      {
+        id: 's1', n: '01', hc: '#ff7a1a', tag: 'GOALS', t: 'Define Your <em>Goals</em> & Objectives', sub: 'SMART Framework',
+        lead: 'Specific, Measurable, Achievable, Relevant, Time-bound — har goal ko number aur deadline do. KPIs batate hain ki aap sahi raste par ho ya nahi. Bina goal ke posting sirf time pass hai.',
+        pts: ['Brand Awareness badhana', 'Lead Generation', 'Website Traffic', 'Sales & Conversions', 'Engagement Growth', 'Customer Retention'],
+        ico: '📊', vt: 'Goals & Metrics', vd: 'KPI = woh number jo aapki success batata hai.', img: 'photo-1551288049-bebda4e38f71',
+        tip: 'Example: "Agle 90 din mein Instagram par 10,000 followers aur 100 leads lana."', st: [['10K', 'Followers'], ['100', 'Leads'], ['90', 'Days']]
+      },
+      {
+        id: 's2', n: '02', hc: '#00d4ff', tag: 'AUDIENCE', t: 'Know Your <em>Target Audience</em>', sub: 'Buyer Persona Banao',
+        lead: 'Jab tak pata nahi ki kisse baat kar rahe ho, content bekaar hai. Research karke ek clear persona banao — naam, age, kaam, problem aur kharidne ki wajah.',
+        pts: ['Demographics – age, gender, city', 'Interests & hobbies', 'Pain points & problems', 'Online behaviour & active time', 'Buying motivation', 'Competitor ki audience'],
+        ico: '👥', vt: 'Audience Analysis', vd: 'Sahi audience = sahi message = sahi result.', img: 'photo-1522202176988-66273c2fd55f',
+        tip: 'Apne top 10 customers se call karke pucho — woh kya search karte hain aur kyun kharidte hain.', st: [['3', 'Personas'], ['6', 'Research Areas'], ['1', 'Clear Message']]
+      },
+      {
+        id: 's3', n: '03', hc: '#4ecdc4', tag: 'PLATFORMS', t: 'Choose the <em>Right Platforms</em>', sub: '2–3 platform par master bano',
+        lead: 'Har platform par hona zaroori nahi. Wahan raho jahan aapki audience hai aur jahan aapka content format fit hota hai.',
+        pts: ['Instagram – Reels & brand building', 'Facebook – community & ads', 'YouTube – long-form & Shorts', 'LinkedIn – B2B & professionals', 'X (Twitter) – news & talk', 'WhatsApp – direct customer connect'],
+        ico: '🌐', vt: 'Social Platforms', vd: 'Quality over quantity — chuno aur jeet lo.', img: 'photo-1611162617213-7d7a39e9b1d7',
+        tip: 'B2C brand → Instagram + Facebook + YouTube. B2B brand → LinkedIn + YouTube + WhatsApp.', st: [['6', 'Platforms'], ['3', 'Focus'], ['1', 'Strategy']]
+      },
+      {
+        id: 's4', n: '04', hc: '#ff6b5b', tag: 'CONTENT', t: 'Create <em>Engaging</em> Content', sub: 'Variety + Content Calendar',
+        lead: 'Ek mahine ka content calendar pehle se plan karo. 40% education, 30% entertainment, 20% proof (reviews) aur 10% selling — yeh mix best chalta hai.',
+        pts: ['Reels & short videos', 'UGC video shoots', 'Carousels & infographics', 'Stories & polls', 'Behind-the-scenes', 'Testimonials & case studies', 'Live sessions & Q&A'],
+        ico: '🎨', vt: 'Content Creation', vd: 'Video first, story first, value first.', img: 'photo-1533750349088-cd871a92f312',
+        tip: 'Pehle 3 second mein hook do — warna audience scroll kar degi.', st: [['40%', 'Educate'], ['30%', 'Entertain'], ['30%', 'Proof+Sell']]
+      },
+      {
+        id: 's5', n: '05', hc: '#ff7a1a', tag: 'SCHEDULE', t: '<em>Consistency</em> & Posting Schedule', sub: 'Roz dikho, tabhi yaad rahoge',
+        lead: 'Algorithm consistent accounts ko reward karta hai. Apni audience ke active time par post karo aur batch mein content shoot karo.',
+        pts: ['Instagram – 4–7 posts/week + daily Stories', 'Facebook – 3–5 posts/week', 'YouTube – 1–2 videos/week', 'LinkedIn – 3 posts/week', 'Best time: 12–2 PM & 7–10 PM'],
+        ico: '⏰', vt: 'Posting Schedule', vd: 'Har 2nd din shoot, har din post.', img: 'photo-1506784983877-45594efa4cbe',
+        tip: 'Ek hi din 4–5 videos shoot karo, phir poore hafte schedule karo — time bachta hai.', st: [['7', 'Posts / Week'], ['2nd', 'Day Shoot'], ['30', 'Days Plan']]
+      },
+      {
+        id: 's6', n: '06', hc: '#00d4ff', tag: 'COMMUNITY', t: 'Community <em>Management</em> & Engagement', sub: 'Followers nahi, fans banao',
+        lead: 'Social media ek conversation hai, broadcast nahi. Jawab do, judo aur relationship banao — loyal community hi sabse sasta marketing hai.',
+        pts: ['Comments ka jaldi reply', 'DMs ka fast response', 'Polls, quizzes & Q&A', 'Customer ko feature karo', 'Contests & giveaways', 'Influencer collaborations', 'Negative feedback calmly handle karo'],
+        ico: '💬', vt: 'Community First', vd: 'Engaged community = loyal customers.', img: 'photo-1529156069898-49953e39b3ac',
+        tip: 'Pehle 1 ghante mein comment ka reply do — reach aur trust dono badhte hain.', st: [['1hr', 'Reply Time'], ['7', 'Tactics'], ['∞', 'Loyalty']]
+      },
+      {
+        id: 's7', n: '07', hc: '#4ecdc4', tag: 'ANALYTICS', t: 'Analytics & <em>Measurement</em>', sub: 'Jo measure hota hai, wahi improve hota hai',
+        lead: 'Weekly report dekho. Jo kaam kar raha hai usse double karo, jo nahi kar raha use band karo. Data hi aapka sabse bada guru hai.',
+        pts: ['Reach & Impressions', 'Engagement Rate', 'Follower Growth', 'Click-Through Rate (CTR)', 'Conversions', 'Cost per Lead', 'Video Watch Time', 'ROI / ROAS'],
+        ico: '📈', vt: 'Analytics Dashboard', vd: 'Tools: Meta Insights, Google Analytics, Looker Studio.', img: 'photo-1460925895917-afdab827c52f',
+        tip: 'Engagement Rate = (Likes + Comments + Shares + Saves) ÷ Reach × 100', st: [['8', 'Key Metrics'], ['Weekly', 'Reports'], ['ROI', 'Focus']]
+      },
+      {
+        id: 's8', n: '08', hc: '#ff6b5b', tag: 'ADS', t: 'Paid <em>Advertising</em> Strategies', sub: 'Organic + Paid = Fast Growth',
+        lead: 'Chhote budget se test karo, winning creative ko scale karo aur retargeting zaroor lagao. Ads tabhi chalte hain jab content pehle se strong ho.',
+        pts: ['Meta Ads (Facebook + Instagram)', 'Google & YouTube Ads', 'LinkedIn Ads', 'Retargeting campaigns', 'A/B test creatives & audiences'],
+        ico: '💰', vt: 'Paid Promotion', vd: 'Strategic ads = predictable growth.', img: 'photo-1553877522-43269d4ea984',
+        tip: 'Rule: 3 creatives × 3 audiences test karo, 3 din baad loser band, winner par budget double.', st: [['3×3', 'Test Matrix'], ['4', 'Ad Platforms'], ['2×', 'Scale Winner']]
+      }
+    ];
+    const host = document.getElementById('topics');
+    host.innerHTML = topics.map(x => `
+<section id="${x.id}" style="--hc:${x.hc}"><div class="num">${x.n}</div><div class="wrap">
+ <div class="rv l"><span class="tag">${x.n} • ${x.tag}</span><h2>${x.t}</h2><div class="sub">${x.sub}</div>
+  <p class="lead">${x.lead}</p>
+  <ul class="pts">${x.pts.map(p => `<li>${p}</li>`).join('')}</ul>
+  <div class="tip"><b>💡 Pro Tip:</b> ${x.tip}</div></div>
+ <div class="visual rv r d1">
+  <div class="photo"><img loading="lazy" alt="${x.vt}" src="${U(x.img)}" onerror="this.style.display='none'"><div class="badge">${x.ico}</div></div>
+  <div class="vtxt"><h3>${x.vt}</h3><p>${x.vd}</p>
+   <div class="mini">${x.st.map(s => `<div><b>${s[0]}</b><span>${s[1]}</span></div>`).join('')}</div></div>
+ </div></div></section>`).join('');
+
+    // gallery
+    const imgs = ['07 PM.jpeg', '07 PM (1).jpeg', '07 PM (2).jpeg', '08 PM.jpeg', '09 PM.jpeg', '09 PM (1).jpeg', '09 PM (2).jpeg', '10 PM.jpeg', '10 PM (1).jpeg', '12 PM.jpeg', '12 PM (1).jpeg', '12 PM (2).jpeg', '13 PM.jpeg']
+      .map(s => 'WhatsApp Image 2026-10-29 at 4.32.' + s);
+    const g1 = imgs.slice(0, 7).map((s, i) => [s, 'ADVMEN Creative ' + (i + 1)]);
+    const g2 = imgs.slice(7).map((s, i) => [s, 'ADVMEN Creative ' + (i + 8)]);
+    const fig = a => a.map(i => `<figure><img loading="lazy" alt="${i[1]}" src="${encodeURI(i[0])}" onerror="this.parentElement.remove()"></figure>`).join('');
+    const lb = document.createElement('div'); lb.id = 'lb'; lb.innerHTML = '<img alt="">'; document.body.appendChild(lb);
+    lb.onclick = () => lb.classList.remove('on');
+    addEventListener('keydown', e => { if (e.key === 'Escape') lb.classList.remove('on') });
+    document.getElementById('gallery').addEventListener('click', e => {
+      const im = e.target.closest('figure img'); if (!im) return;
+      lb.firstChild.src = im.src; lb.classList.add('on');
+    });
+    tr1.innerHTML = fig(g1) + fig(g1); tr2.innerHTML = fig(g2) + fig(g2);
+
+    (function () {
+      const secs = [...document.querySelectorAll('section')];
+      const dots = document.getElementById('dots');
+      document.getElementById('tot').textContent = secs.length;
+      secs.forEach((s, i) => { const a = document.createElement('a'); a.href = '#' + s.id; a.title = i + 1; dots.appendChild(a) });
+      const dl = [...dots.children]; let cur = 0;
+      const go = i => { i = (i + secs.length) % secs.length; secs[i].scrollIntoView({ behavior: 'smooth' }) };
+      next.onclick = () => go(cur + 1); prev.onclick = () => go(cur - 1);
+      addEventListener('keydown', e => {
+        if (['ArrowDown', 'ArrowRight', 'PageDown'].includes(e.key) || (e.key === ' ' && !e.shiftKey)) { e.preventDefault(); go(cur + 1) }
+        else if (['ArrowUp', 'ArrowLeft', 'PageUp'].includes(e.key) || (e.key === ' ' && e.shiftKey)) { e.preventDefault(); go(cur - 1) }
+        else if (e.key.toLowerCase() === 'f') { document.fullscreenElement ? document.exitFullscreen() : document.documentElement.requestFullscreen() }
+      });
+      const io = new IntersectionObserver(es => es.forEach(e => {
+        if (e.isIntersecting) {
+          cur = secs.indexOf(e.target);
+          document.getElementById('cur').textContent = cur + 1; dl.forEach((d, i) => d.classList.toggle('active', i === cur))
+        }
+      }), { threshold: .4 });
+      secs.forEach(s => io.observe(s));
+      addEventListener('scroll', () => {
+        const h = document.documentElement;
+        progress.style.width = (h.scrollTop / (h.scrollHeight - h.clientHeight) * 100) + '%'
+      }, { passive: true });
+      const ro = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); ro.unobserve(e.target) } }), { threshold: .1 });
+      document.querySelectorAll('.rv').forEach(el => ro.observe(el));
+      const co = new IntersectionObserver(es => es.forEach(e => {
+        if (!e.isIntersecting) return; co.unobserve(e.target);
+        const t = +e.target.dataset.c, s = e.target.dataset.s || ''; let n = 0; const st = Math.max(1, Math.ceil(t / 40));
+        const id = setInterval(() => { n = Math.min(t, n + st); e.target.textContent = n + s; if (n >= t) clearInterval(id) }, 35)
+      }), { threshold: .6 });
+      document.querySelectorAll('[data-c]').forEach(el => co.observe(el));
+      // videos: local file first, then online fallback
+      document.querySelectorAll('video.vid').forEach(v => {
+        v.muted = true; v.src = v.dataset.src;
+        v.addEventListener('error', () => { v.src = v.dataset.fallback; v.play().catch(() => { }) }, { once: true });
+      });
+      const ug = document.getElementById('ugcv');
+      ug.muted = true;
+      const clips = ['19', '20', '21', '22', '24', '25', '26', '27'].map(s => encodeURI(`WhatsApp Video 2026-10-29 at 3.52.${s} PM.mp4`));
+      const tb = document.getElementById('thumbs');
+      const snd = document.getElementById('snd');
+      const unmute = () => { ug.muted = false; ug.volume = 1; snd.classList.add('off'); };
+      snd.onclick = () => { unmute(); ug.play().catch(() => { }); };
+      ug.addEventListener('volumechange', () => snd.classList.toggle('off', !ug.muted));
+      let ci = 0;
+      const play = i => {
+        ci = (i + clips.length) % clips.length;
+        ug.src = clips[ci]; ug.play().catch(() => { });
+        [...tb.children].forEach((b, k) => b.classList.toggle('on', k === ci));
+      };
+      clips.forEach((c, i) => {
+        const b = document.createElement('button');
+        b.setAttribute('aria-label', 'UGC video ' + (i + 1));
+        b.innerHTML = `<video muted playsinline preload="metadata" src="${c}#t=0.5"></video><span>${i + 1}</span>`;
+        b.onclick = () => { unmute(); play(i); };
+        tb.appendChild(b);
+      });
+      ug.addEventListener('ended', () => play(ci + 1));
+      ug.addEventListener('error', () => ug.parentElement.classList.add('empty'));
+      play(0); ug.pause();
+      new IntersectionObserver(es => es.forEach(e => { e.isIntersecting ? ug.play().catch(() => { }) : ug.pause() }), { threshold: .3 }).observe(ug);
+      const vo = new IntersectionObserver(es => es.forEach(e => { e.isIntersecting ? e.target.play().catch(() => { }) : e.target.pause() }), { threshold: .3 });
+      document.querySelectorAll('video.vid').forEach(v => vo.observe(v));
+    })();
+  </script>
+</body>
+
+</html>
